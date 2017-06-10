@@ -63,6 +63,7 @@ public class Principal {
 //					janela[pos] = 1;
 //					System.out.println("Venda efetivada");
 //				} else {
+//					-- Aqui precisa verificar se o ônibus está lotado ou não --
 //					System.out.println("Poltrona ocupada");
 		//
 //				}
