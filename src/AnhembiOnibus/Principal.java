@@ -31,7 +31,7 @@ public class Principal {
 				mostrarMapaAssentos("Corredor", assentosCorredor);
 			}else if(menu == 1){
 				
-				if(verificarAssentosLivres(assentosCorredor, assentosJanela)){
+				if(!verificarAssentosLivres(assentosCorredor, assentosJanela)){
 					System.out.println("\n-- Ônibus Lotado --\n");
 					continue;
 				}
@@ -72,13 +72,20 @@ public class Principal {
 		} // fim do loop
 	}
 	
-	private static void mostrarMapaAssentos(String title, int[] assentos){
-		System.out.println("Mapa de assentos para: " + title);
+	private static void mostrarMapaAssentos(String title, int[] assentos)
+	{
+		String[] statusPoltrona = {"Livre", "Ocupada"};
+		
+		System.out.println("\nMapa de assentos para: " + title);
+		
+		for(int i = 0; i < assentos.length; i++){
+			System.out.println("Poltrona " + (i+1) + " - " + statusPoltrona[assentos[i]]);
+		}
 	}
 	
 	private static void exibirMenu()
 	{
-		System.out.println("MENU - VENDA DE PASSAGENS");
+		System.out.println("\nMENU - VENDA DE PASSAGENS");
 		System.out.println("1. Vender passagem");
 		System.out.println("2. Mapa de ocupação");
 		System.out.println("3. Encerrar");
