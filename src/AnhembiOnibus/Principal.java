@@ -20,18 +20,15 @@ public class Principal {
 		int menu = 0;
 
 		while (true) {
-			System.out.println("MENU - VENDA DE PASSAGENS");
-			System.out.println("1. Vender passagem");
-			System.out.println("2. Mapa de ocupação");
-			System.out.println("3. Encerrar");
+			exibirMenu();
 			menu = menuScanner.nextInt();
 
 			if (menu == 3){
 				System.out.println("Saindo do sistema");
 				break;
 			} else if (menu == 2) {
-				mostrarMapaAssentos("Janela", assentosJanela);				
-				mostrarMapaAssentos("Corredor", assentosCorredor);				
+				mostrarMapaAssentos("Janela", assentosJanela);
+				mostrarMapaAssentos("Corredor", assentosCorredor);
 			}else if(menu == 1){
 				System.out.println("Escolha o seu assento");
 //				Scanner poltrona = new Scanner(System.in);
@@ -71,5 +68,13 @@ public class Principal {
 	
 	private static void mostrarMapaAssentos(String title, int[] assentos){
 		System.out.println("Mapa de assentos para: " + title);
+	}
+	
+	private static void exibirMenu()
+	{
+		System.out.println("MENU - VENDA DE PASSAGENS");
+		System.out.println("1. Vender passagem");
+		System.out.println("2. Mapa de ocupação");
+		System.out.println("3. Encerrar");
 	}
 }
