@@ -30,6 +30,12 @@ public class Principal {
 				mostrarMapaAssentos("Janela", assentosJanela);
 				mostrarMapaAssentos("Corredor", assentosCorredor);
 			}else if(menu == 1){
+				
+				if(verificarAssentosLivres(assentosCorredor, assentosJanela)){
+					System.out.println("\n-- Ônibus Lotado --\n");
+					continue;
+				}
+				
 				System.out.println("Escolha o seu assento");
 //				Scanner poltrona = new Scanner(System.in);
 //				Scanner posicao = new Scanner(System.in);
@@ -76,5 +82,20 @@ public class Principal {
 		System.out.println("1. Vender passagem");
 		System.out.println("2. Mapa de ocupação");
 		System.out.println("3. Encerrar");
+	}
+	
+	private static boolean verificarAssentosLivres(int[] assentosJanela, int[] assentosCorredor)
+	{
+		boolean assentoLivre = false;
+		int posicao = 0;
+		
+		while(posicao < assentosJanela.length || !assentoLivre){
+			if(assentosJanela[posicao] == 0 || assentosCorredor[posicao] == 0){
+				assentoLivre = true;
+				break;
+			}
+		}
+		
+		return assentoLivre;
 	}
 }
